@@ -1,0 +1,33 @@
+<h3>Agenda</h3>
+
+<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+        <label class="btn btn-secondary">
+          <input  type="radio" name="options" id="option2" ng-click="personalAgenda"> Personal Agenda
+        </label>
+        <label class="btn btn-secondary">
+          <input  type="radio" name="options" id="option3" ng-click="business"> Business Agenda
+        </label>
+      </div>
+      <br/> -->
+
+<select [(ngModel)]="selectedType">
+    <option value="">--ALL--</option>
+  <option value="Personal">Personal</option>
+  <option value="Business">Business</option>
+</select>
+
+<br/>
+      
+<table border="1" class="table table-bordered" *ngIf="agendas.length>0">
+    <thead><tr><th>Id</th><th>User Id</th><th>Agenda Type</th></tr></thead>
+    <tbody *ngFor="let agenda of agendas | type: selectedType">
+        <tr>
+            <td>{{agenda.agendaId}}</td>
+            <td>{{agenda.user.userId}}</td>
+            <td>{{agenda.type}}</td>
+            <td><button (click)= "view(agenda.agendaId)" class="btn btn-primary">View</button></td>
+        </tr>
+
+    </tbody>
+</table>

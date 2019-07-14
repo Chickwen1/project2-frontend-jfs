@@ -1,0 +1,53 @@
+<h1>Edit Tasks</h1>
+
+<div class="container">
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && taskDate.invalid">Enter valid date</div>
+    <form (ngSubmit)="!todoForm.invalid && saveTask()" #todoForm="ngForm">
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" [(ngModel)]="task.taskDescription" class="form-control" name="description"
+                required="required">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Date</label>
+            <input type="date" #taskDate="ngModel" [ngModel]="task.taskDate | date:'yyyy-MM-dd'"
+                (ngModelChange)="task.taskDate = $event" class="form-control" name="targetDate" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Duration</label>
+            <input type="text" [(ngModel)]="task.duration" class="form-control" name="duration" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Location</label>
+            <input type="text" [(ngModel)]="task.location" class="form-control" name="location" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Is Task Completed?</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" [(ngModel)]="task.taskStatus" class="form-check-input" name="taskStatus" id=""
+                        value="Completed">
+                    Completed
+                </label>
+                <br />
+                <label class="form-check-label">
+                    <input type="radio" [(ngModel)]="task.taskStatus" class="form-check-input" name="taskStatus" id=""
+                        value="In Progress">
+                    In Progress
+                </label>
+                <br />
+                <label class="form-check-label">
+                    <input type="radio" [(ngModel)]="task.taskStatus" class="form-check-input" name="taskStatus" id=""
+                        value="Not Started">
+                    Not Started
+                </label>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>

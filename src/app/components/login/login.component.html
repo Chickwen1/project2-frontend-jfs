@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" [(ngModel)] = "email" name="email" required /></td>
+        </tr>
+        <tr>
+            <td >Password</td>
+            <td><input type="password" [(ngModel)] = "password" name="password" required /></td>
+        </tr>
+        <tr>
+            <td><button (click) = "login()" class="btn btn-primary">Submit</button></td>
+        </tr>
+    </tbody>
+
+</table>
+</div>
+<div><button (click) = "sendToResend()" class="btn btn-success">Forgot Password?</button></div>
+</div>

@@ -1,0 +1,68 @@
+<h1>Create Tasks</h1>
+
+<div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" [(ngModel)]="taskDescription" name="taskDescription" required /></td>
+                </tr>
+                <tr>
+                    <td><label>Date</label></td>
+                    <td>
+                        <input type="date" [ngModel]="taskDate | date:'yyyy-MM-dd'" name="taskDate" required="required">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td><input type="text" [(ngModel)]="location" name="location" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label>Duration</label></td>
+
+                <td><input type="number" [(ngModel)]="duration" name="duration" required /></td>
+
+                </tr>
+                <tr>
+                    <td><button (click)="createTask()" class="btn btn-primary">Submit</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<!-- <div class="container">
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && taskDate.invalid">Enter valid date</div>
+    <form (ngSubmit)="!todoForm.invalid && saveTask()" #todoForm="ngForm">
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" [(ngModel)]="taskDescription" class="form-control" name="description"
+                required="required">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Date</label>
+            <input type="date" #taskDate="ngModel" [ngModel]="taskDate | date:'yyyy-MM-dd'"
+                (ngModelChange)="taskDate = $event" class="form-control" name="targetDate" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Duration</label>
+            <input type="text" [(ngModel)]="duration" class="form-control" name="duration" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Location</label>
+            <input type="text" [(ngModel)]="location" class="form-control" name="location" required="required">
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div> -->
