@@ -47,5 +47,7 @@ export class UserService {
      sessionStorage.removeItem('fullName');
      sessionStorage.removeItem('user');
      sessionStorage.removeItem('agenda');
+     sessionStorage.removeItem('agendaId');
+     sessionStorage.removeItem('agendaType');
    }
 }
