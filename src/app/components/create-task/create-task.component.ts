@@ -11,29 +11,40 @@ import { Agenda } from 'src/app/models/agenda';
 })
 export class CreateTaskComponent implements OnInit {
 
+
+  message: string;
   agenda:Agenda;
   task:Task;
-  message: string;
-  taskId: number;
   taskDate:Date;
   taskDescription:string;
   duration:number;
   location:string;
+  agendaId:number ;
   
   constructor(private taskService:TaskService,
-    private route:Router) { }
+    private router:Router) { }
 
   ngOnInit() {
+    this.agendaId = JSON.parse(sessionStorage.getItem('agendaId'));
   }
 
   createTask(){
-     this.task = new Task(this.taskId, this.taskDate, this.taskDescription, this.duration, this.location, "Not Started", this.agenda);
-    console.log(`created task ${this.task} for agenda ${sessionStorage.getItem('agendaId')}`);
-    this.taskService.createTask(this.taskId, this.task).subscribe(
+
+     console.log(this.taskDate, this.taskDescription, this.duration, this.location)
+
+    let newTask = { "taskDate": this.taskDate, "taskDescription": this.taskDescription, 
+        "duration": this.duration, "location":this.location, "taskStatus":"Not Started", "agenda":{"agendaId":this.agendaId} };
+
+
+
+    console.log(`created task ${this.task} for agenda ${this.agendaId}`);
+    this.taskService.createTask(newTask).subscribe(
       response => {
         console.log(response);
         this.message = `Creation of Task ${this.task} Successful`;
+        this.router.navigate(['task']);
       }
+      
     );
 
   }

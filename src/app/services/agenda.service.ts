@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Agenda } from '../models/agenda';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class AgendaService {
     private router:Router) { }
 
     agenda:Agenda[]
+    user:User[]
+
+    userObj = JSON.parse(sessionStorage.getItem('user'))
 
   list(){
     return this.http.get<Agenda[]>(this.serverUrl + "agenda");
@@ -26,6 +30,17 @@ export class AgendaService {
 
   listTaskByAgenda(agendaId){
     return this.http.get<Task[]>(this.serverUrl + "tasks");
+  }
+
+  createNewAgenda(type:string){
+    console.log(this.userObj)
+    let agenda = { "user": this.userObj, "type": type};
+    console.log( this.user, type)
+    return this.http.post(this.serverUrl + `agenda`, agenda);
+  }
+
+  deleteAgenda(id:number){
+    return this.http.delete( this.serverUrl + `agenda/${id}`);
   }
 
   // getPersonal(){

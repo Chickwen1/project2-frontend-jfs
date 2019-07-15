@@ -1,1 +1,23 @@
-<p>create-agenda works!</p>
+<div class="container">
+
+
+        <fieldset class="form-group">
+                <label>Select Agenda</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" [(ngModel)]="type" name="type" id=""
+                            value="Personal">
+                        Personal
+                    </label>
+                    <br />
+                    <label class="form-check-label">
+                        <input type="radio" [(ngModel)]="type" name="type" id=""
+                            value="Business">
+                        Business
+                    </label>
+                </div>
+            </fieldset>
+
+    <div><button (click) = "createNewAgenda()" class="btn btn-success">Create Agenda</button></div>
+    </div>
+    <!--  -->

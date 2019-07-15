@@ -20,8 +20,7 @@ import { CreateAgendaComponent } from './components/create-agenda/create-agenda.
 import { TypePipe } from './pipes/type.pipe';
 import { IdPipe } from './pipes/id.pipe';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
-
-
+import { ModalModule } from 'ngb-modal';
 
 @NgModule({
   declarations: [
@@ -46,6 +45,7 @@ import { EditTaskComponent } from './components/edit-task/edit-task.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ModalModule,
     FormsModule
   ],
   providers: [],

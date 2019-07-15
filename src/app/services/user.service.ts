@@ -43,5 +43,9 @@ export class UserService {
    
    logout(){
      sessionStorage.removeItem('loggedInUser');
+     sessionStorage.removeItem('userId');
+     sessionStorage.removeItem('fullName');
+     sessionStorage.removeItem('user');
+     sessionStorage.removeItem('agenda');
    }
 }

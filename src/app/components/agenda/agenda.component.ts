@@ -3,6 +3,7 @@ import { AgendaService } from 'src/app/services/agenda.service';
 import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
 import { Agenda } from 'src/app/models/agenda';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-agenda',
@@ -14,27 +15,46 @@ export class AgendaComponent implements OnInit {
  
   selectedType: string;
 
-  constructor(private agendaService:AgendaService, private taskService:TaskService, private router:Router) { }
+  constructor(private agendaService:AgendaService, 
+    private taskService:TaskService, private router:Router) { }
 
   ngOnInit() {
-    this.list();
+    this.refreshAgendas();
   }
 
   agendaId: number;
+  type;string;
   sessionAgendaId: string;
-  agendas = [];
+  agendas : Agenda[];
+  message: string;
+  user:User;
 
-  list() {
+  refreshAgendas() {
     this.agendaService.list().subscribe((res) => {
       console.log(res);
       this.agendas = res;
     });
   }
 
-  view(agendaId){
-    console.log(`view ${agendaId}`);
-    //this.sessionAgendaId = this.agendaId.toString();
+  deleteAgenda(agendaId){
+    console.log(`delete agenda ${agendaId}`);
+    this.agendaService.deleteAgenda(agendaId).subscribe(
+      response => {
+        console.log(response);
+        this.message = `Delete of Agenda ${agendaId} was Successful`;
+        this.refreshAgendas();
+      }
+    );
+  }
+
+  view(agendaId, type){
+    console.log(`view ${agendaId}, ${type}`);
     sessionStorage.setItem('agendaId', `${agendaId}`)
+    sessionStorage.setItem('agendaType', `${type}`)
     this.router.navigate(['task'])
+  }
+
+  createAgenda(){
+    this.router.navigate(['create-agenda'])
   }
 }

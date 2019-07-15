@@ -9,10 +9,13 @@ export class TaskService {
 
   serverUrl = "http://localhost:8090/"
 
+  userObj = JSON.parse(sessionStorage.getItem('user'))
+  agendaObj = JSON.parse(sessionStorage.getItem('agendaId'))
+
   constructor(private http: HttpClient) { }
 
-  list(){
-    return this.http.get<Task[]>(this.serverUrl + "tasks");
+  list(agendaId:number){
+    return this.http.get<Task[]>(this.serverUrl + `agenda/${agendaId}/tasks`);
   }
 
   deleteTask(id:number){
@@ -20,15 +23,21 @@ export class TaskService {
   }
 
   retrieveTask(id:number){
-    return this.http.get<Task>( this.serverUrl + "tasks/"+ id);
+    return this.http.get<Task>( this.serverUrl + `tasks/${id}`);
   }
+
+  // findTaskByAgenda(agendaId:number){
+  //   return this.http.get<Task>( this.serverUrl + `tasks/${agendaId}`);
+  //   }
 
   updateTask(id, task){
     return this.http.put( this.serverUrl + "tasks/"+ id, task);
   }
 
-  createTask(id, task){
-    return this.http.post( this.serverUrl + "tasks/"+ id, task);
+  createTask(task){
+   // let newTask = { "task": task, "user": this.userObj, "agenda":this.agendaObj};
+    console.log(task);
+    return this.http.post( this.serverUrl + `tasks/`, task);
   }
 
 

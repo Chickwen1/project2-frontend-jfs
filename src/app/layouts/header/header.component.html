@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="nav navbar-nav">
-        <a class="nav-item nav-link active" routerLink="">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" routerLink="/welcome">Home <span class="sr-only">(current)</span></a>
         
-        <a *ngIf="userService.isUserLoggedIn()" class="nav-item nav-link" routerLink="/welcome">Welcome</a>
+        <!-- <a *ngIf="userService.isUserLoggedIn()" class="nav-item nav-link" routerLink="/welcome">Welcome</a> -->
         <a *ngIf="userService.isUserLoggedIn()" class="nav-item nav-link" routerLink="/agenda">Agenda</a>
         <a *ngIf="!userService.isUserLoggedIn()"class="nav-item nav-link" routerLink="/login">Login</a>
         <a *ngIf="userService.isUserLoggedIn()" class="nav-item nav-link" routerLink="/logout">Logout</a>

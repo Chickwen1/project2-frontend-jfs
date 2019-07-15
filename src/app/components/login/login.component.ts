@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,14 @@ export class LoginComponent implements OnInit {
   password:string; 
   errorMessage = 'Invalid Credentials';
   invalidLogin = false;
+  userId:number;
+  firstName:string;
+  lastName:string;
+  phoneNumber:string;
+  address:string;
+  city:string;
+  state:string;
+
 
   constructor(private userService:UserService, 
     private router:Router) { }
@@ -24,10 +33,24 @@ export class LoginComponent implements OnInit {
     console.log("Login:", this.email, this.password);
     this.userService.login(this.email, this.password).subscribe ( (res)=>{
       console.log(res);
-      
+      json:true
+
+      let user = new User(res);
+
+      let userObj = JSON.stringify(res);
+      sessionStorage.setItem('user', `${userObj}`)
+
+      console.log(user);
       if (res != null){
+        console.log(user)
+        console.log(sessionStorage.getItem('user'))
+        //res = new User(this.userId);
+
         this.invalidLogin = false;
+        
         sessionStorage.setItem('loggedInUser', this.email);
+        sessionStorage.setItem('userId', `${user.userId}`);
+        sessionStorage.setItem('fullName', `${user.firstName} ${user.lastName}`)
         //sessionStorage.setItem('loggedInUserId', this.userId);
         this.router.navigate(['welcome']);
     }

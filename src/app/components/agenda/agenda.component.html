@@ -10,6 +10,7 @@
         </label>
       </div>
       <br/> -->
+      <div class="alert alert-success" *ngIf='message'>{{message}}</div>
 
 <select [(ngModel)]="selectedType">
     <option value="">--ALL--</option>
@@ -26,8 +27,27 @@
             <td>{{agenda.agendaId}}</td>
             <td>{{agenda.user.userId}}</td>
             <td>{{agenda.type}}</td>
-            <td><button (click)= "view(agenda.agendaId)" class="btn btn-primary">View</button></td>
+            <td><button (click)= "view(agenda.agendaId, agenda.type)" class="btn btn-primary">View</button></td>
+            <td><button (click)= "deleteAgenda(agenda.agendaId)" class="btn btn-warning">Delete</button></td>
         </tr>
 
     </tbody>
 </table>
+<div class="row">
+        <td><button (click)= "createAgenda()" class="btn btn-success">Create An Agenda</button></td>
+        <!-- <td><mat-icon (click)= "createAgenda()" class="btn btn-success">Create An Agenda</mat-icon></td> -->
+    </div>
+<!-- 
+    <modal #myModal>
+            <modal-header>
+                Modal header content goes there.
+            </modal-header>
+         
+            <modal-content>
+                Modal body content goes there.
+            </modal-content>
+         
+            <modal-footer>
+                Modal footer content goes there.
+            </modal-footer>
+        </modal> -->

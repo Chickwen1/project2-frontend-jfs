@@ -12,7 +12,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private userService:UserService) { }
 
-  welcomeUser = sessionStorage.getItem("loggedInUser");
+  welcomeUser = sessionStorage.getItem("fullName");
   ngOnInit() {
   }
 

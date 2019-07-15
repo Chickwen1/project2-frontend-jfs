@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/task';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -10,25 +10,35 @@ import { Router } from '@angular/router';
 })
 export class TaskComponent implements OnInit {
 
+  agendaId:number;
   
-  constructor( private taskService:TaskService,
-    private router:Router) { }
+  constructor( private taskService:TaskService, private route: ActivatedRoute,
+    private router:Router) { 
+      this.route.params.subscribe ((params)=>{
+       // this.agendaId = params['agendaId'];
+       // console.log('AgendaId', this.agendaId);
+      });
+
+    }
 
   ngOnInit() {
+      this.agendaId = JSON.parse(sessionStorage.getItem('agendaId'));//params['agendaId'];
+       // console.log('AgendaId', this.agendaId);
+      
     this.refreshTasks();
   }
 
   tasks : Task[];
   message: string;
   taskId:number;
-  agendaId:number;
 
   refreshTasks() {
-    this.taskService.list().subscribe((res) => {
+    this.taskService.list(this.agendaId).subscribe((res) => {
       console.log(res);
       this.tasks = res;
     });
   }
+
 
   deleteTask(taskId){
     console.log(`delete task ${taskId}`);
@@ -47,7 +57,7 @@ export class TaskComponent implements OnInit {
   }
 
   addTask(){
-    this.router.navigate(['edit-task', -1])
+    this.router.navigate(['create-task'])
   }
 
 }

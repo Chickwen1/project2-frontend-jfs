@@ -11,46 +11,47 @@ import { Agenda } from 'src/app/models/agenda';
 })
 export class EditTaskComponent implements OnInit {
 
-  id:number;
-  task:Task;
-  agenda:Agenda;
+  id: number;
+  task: Task;
+  agenda: Agenda;
 
-  constructor(private taskService:TaskService,
-    private route:ActivatedRoute,
-    private router:Router) { }
+  constructor(private taskService: TaskService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.task = new Task(0,new Date(),'',1,'','', this.agenda)
-   
-    if(this.id!=1){
-    this.taskService.retrieveTask(this.id)
-    .subscribe(
-      data => this.task = data
-    );
+    //this.task = new Task(0,new Date(),'',1,'','', this.agenda)
+
+    if (this.id != 1) {
+      this.taskService.retrieveTask(this.id)
+        .subscribe(
+          data => this.task = data
+        );
     }
   }
 
-  saveTask(){
-    if(this.id === -1){
+  saveTask() {
+    if (this.id === -1) {
+      console.log(this.id, this.task)
       this.taskService.createTask(this.id, this.task)
-    .subscribe(
-      data => {
-        console.log(data)
-        this.router.navigate(['task']);
-      }
-    )
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(['task']);
+          }
+        )
     } else {
-    this.taskService.updateTask(this.id, this.task)
-    .subscribe(
-      data => {
-        console.log(data)
-        this.router.navigate(['task']);
-      }
-    )
+      this.taskService.updateTask(this.id, this.task)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(['task']);
+          }
+        )
     }
-    
+
   }
 
 }
