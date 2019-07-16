@@ -35,7 +35,7 @@ export class EditTaskComponent implements OnInit {
   saveTask() {
     if (this.id === -1) {
       console.log(this.id, this.task)
-      this.taskService.createTask(this.id, this.task)
+      this.taskService.createTask(this.id)
         .subscribe(
           data => {
             console.log(data)
