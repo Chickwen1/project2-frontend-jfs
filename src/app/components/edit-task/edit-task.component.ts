@@ -52,6 +52,11 @@ export class EditTaskComponent implements OnInit {
         )
     }
 
+    
+  }
+
+  goBack(){
+    this.router.navigate(['task']);
   }
 
 }

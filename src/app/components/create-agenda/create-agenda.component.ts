@@ -26,4 +26,7 @@ export class CreateAgendaComponent implements OnInit {
 
     });
   }
+  goBack(){
+    this.router.navigate(['agenda']);
+  }
 }

@@ -60,4 +60,8 @@ export class TaskComponent implements OnInit {
     this.router.navigate(['create-task'])
   }
 
+  goBack(){
+    this.router.navigate(['agenda']);
+  }
+
 }

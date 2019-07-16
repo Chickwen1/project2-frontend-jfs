@@ -1,4 +1,4 @@
-<h1>Create Tasks</h1>
+<h1 class="display-4">Create Tasks</h1>
 
 <!-- <div class="container">
     <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
@@ -52,9 +52,9 @@
                 <input type="date"  [ngModel]="taskDate | date:'yyyy-MM-dd'" name="targetDate" required="required">
             </fieldset>
     
-            <fieldset class="form-group">
+        <fieldset class="form-group">
                 <label>Duration</label>
-                <input type="text" [(ngModel)]="duration" class="form-control" name="duration" required="required">
+                <input type="number" [(ngModel)]="duration" class="form-control" name="duration" required="required">
             </fieldset>
     
             <fieldset class="form-group">
@@ -63,5 +63,6 @@
             </fieldset>
     
             <button type="submit" class="btn btn-success">Save</button>
+            <button (click)="goBack()" class="btn btn-primary">Go Back</button>
         </form>
     </div>

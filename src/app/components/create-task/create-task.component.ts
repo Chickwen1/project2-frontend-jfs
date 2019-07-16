@@ -49,4 +49,8 @@ export class CreateTaskComponent implements OnInit {
 
   }
 
+  goBack(){
+    this.router.navigate(['task']);
+  }
+
 }
