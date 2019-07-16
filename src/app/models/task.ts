@@ -1,9 +1,11 @@
 import { Agenda } from './agenda';
+import { Time } from '@angular/common';
 
 export class Task {
 
     taskId: number;
     taskDate: Date;
+    taskTime: Date;
     taskDescription: string;
     duration: number;
     location: string;

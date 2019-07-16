@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Task } from 'src/app/models/task';
 import { Agenda } from 'src/app/models/agenda';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-create-task',
@@ -19,11 +20,11 @@ export class CreateTaskComponent implements OnInit {
   agenda:Agenda;
   task:Task;
   taskDate:Date;
+  taskTime:Time;
   taskDescription:string;
   duration:number;
   location:string;
   agendaId:number ;
-  time = {hour: 13, minute: 30};
   
   constructor(private taskService:TaskService,
     private router:Router,
@@ -33,18 +34,16 @@ export class CreateTaskComponent implements OnInit {
     this.agendaId = JSON.parse(sessionStorage.getItem('agendaId'));
   }
 
-  selectToday() {
-    console.log(this.model)
-    this.model = this.calendar.getToday();
-  }
-
   createTask(){
 
-     console.log(this.taskDate, this.taskDescription, this.duration, this.location)
+     console.log(this.taskDate, this.taskTime, this.taskDescription, this.duration, this.location)
+// conversion -
 
-    let newTask = { "taskDate": this.taskDate, "taskDescription": this.taskDescription, 
+//var date = this.taskDate.toLocaleString("en-US", {timeZone: "America/New_York"});
+
+    let newTask = { "taskDate": this.taskDate , "taskDescription": this.taskDescription, 
         "duration": this.duration, "location":this.location, "taskStatus":"Not Started", "agenda":{"agendaId":this.agendaId} };
-
+    console.log(newTask)
 
 
     console.log(`created task ${this.task} for agenda ${this.agendaId}`);

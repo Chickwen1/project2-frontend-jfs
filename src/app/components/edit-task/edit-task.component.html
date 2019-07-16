@@ -11,7 +11,7 @@
         </fieldset>
         <fieldset class="form-group">
             <label>Date</label>
-            <input type="date" #taskDate="ngModel" [ngModel]="task.taskDate | date:'yyyy-MM-dd'"
+            <input type="datetime-local"  #taskDate="ngModel" [ngModel]="task.taskDate | date:'yyyy-MM-ddTHH:mm'" 
                 (ngModelChange)="task.taskDate = $event" class="form-control" name="targetDate" required="required">
         </fieldset>
 

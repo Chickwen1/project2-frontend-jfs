@@ -1,33 +1,44 @@
 <h1 class="display-4">Create Tasks</h1>
 
 <div class="container">
-        <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
-        <!-- <div class="alert alert-warning" *ngIf="todoForm.dirty && taskDate.invalid">Enter valid date</div> -->
-        <form (ngSubmit)="!todoForm.invalid && createTask()" #todoForm="ngForm">
-            <fieldset class="form-group">
-                <label>Description</label>
-                <input type="text" [(ngModel)]="taskDescription" class="form-control" name="description"
-                    required="required">
-            </fieldset>
-            <fieldset class="form-group">
-                <label>Date</label>
-                <input type="date"  [ngModel]="taskDate" name="targetDate" required="required">
-            </fieldset>
-
-            <!-- | date:'yyyy-MM-dd' -->
-            
-    
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter valid values</div>
+    <!-- <div class="alert alert-warning" *ngIf="todoForm.dirty && taskDate.invalid">Enter valid date</div> -->
+    <form (ngSubmit)="!todoForm.invalid && createTask()" #todoForm="ngForm">
         <fieldset class="form-group">
-                <label>Duration</label>
-                <input type="number" [(ngModel)]="duration" class="form-control" name="duration" required="required">
-            </fieldset>
-    
-            <fieldset class="form-group">
-                <label>Location</label>
-                <input type="text" [(ngModel)]="location" class="form-control" name="location" required="required">
-            </fieldset>
-    
-            <button type="submit" class="btn btn-success">Save</button>
-            <button (click)="goBack()" class="btn btn-primary">Go Back</button>
-        </form>
-    </div>
+            <label>Description</label>
+            <input type="text" [(ngModel)]="taskDescription" class="form-control" name="description"
+                required="required">
+        </fieldset>
+
+
+        <fieldset class="form-group">
+            <label>Date</label>
+            <input type="datetime-local" [(ngModel)]="taskDate" name="taskDate" required="required">
+        </fieldset>
+
+        <!-- <fieldset class="form-group">
+            <label>Date</label>
+            <input type="datetime-local" [(ngModel)]="taskTime" name="taskTime" required="required">
+        </fieldset> -->
+
+
+        <!-- <fieldset class="form-group">
+            <label>Date</label>
+            <input type="date" #taskDate="ngModel" [ngModel]="taskDate | date:'yyyy-MM-dd'"
+                (ngModelChange)="taskDate = $event" class="form-control" name="targetDate" required="required">
+        </fieldset> -->
+
+        <fieldset class="form-group">
+            <label>Duration</label>
+            <input type="number" [(ngModel)]="duration" class="form-control" name="duration" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Location</label>
+            <input type="text" [(ngModel)]="location" class="form-control" name="location" required="required">
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+    </form>
+</div>
