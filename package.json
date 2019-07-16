@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
+    "@ng-bootstrap/ng-bootstrap": "^5.0.0",
     "angular-modal-service": "^0.15.3",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",

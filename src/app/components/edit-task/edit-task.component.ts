@@ -21,9 +21,7 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-
-    //this.task = new Task(0,new Date(),'',1,'','', this.agenda)
-
+    
     if (this.id != 1) {
       this.taskService.retrieveTask(this.id)
         .subscribe(
