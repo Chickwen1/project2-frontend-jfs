@@ -44,20 +44,14 @@ export class LoginComponent implements OnInit {
       if (res != null){
         console.log(user)
         console.log(sessionStorage.getItem('user'))
-        //res = new User(this.userId);
 
         this.invalidLogin = false;
         
         sessionStorage.setItem('loggedInUser', this.email);
         sessionStorage.setItem('userId', `${user.userId}`);
         sessionStorage.setItem('fullName', `${user.firstName} ${user.lastName}`)
-        //sessionStorage.setItem('loggedInUserId', this.userId);
         this.router.navigate(['welcome']);
     }
-        // else{
-        //   this.invalidLogin = true;
-        //   this.router.navigate(['login']);
-        // }
     },(err)=>{console.log(err)
       alert('Username/password invalid')});
   }

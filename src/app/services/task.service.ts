@@ -26,16 +26,12 @@ export class TaskService {
     return this.http.get<Task>( this.serverUrl + `tasks/${id}`);
   }
 
-  // findTaskByAgenda(agendaId:number){
-  //   return this.http.get<Task>( this.serverUrl + `tasks/${agendaId}`);
-  //   }
 
   updateTask(id, task){
     return this.http.put( this.serverUrl + "tasks/"+ id, task);
   }
 
   createTask(task){
-   // let newTask = { "task": task, "user": this.userObj, "agenda":this.agendaObj};
     console.log(task);
     return this.http.post( this.serverUrl + `tasks/`, task);
   }
