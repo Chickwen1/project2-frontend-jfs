@@ -54,11 +54,12 @@ export class LoginComponent implements OnInit {
         //sessionStorage.setItem('loggedInUserId', this.userId);
         this.router.navigate(['welcome']);
     }
-        else{
-          this.invalidLogin = true;
-          this.router.navigate(['login']);
-        }
-    });
+        // else{
+        //   this.invalidLogin = true;
+        //   this.router.navigate(['login']);
+        // }
+    },(err)=>{console.log(err)
+      alert('Username/password invalid')});
   }
 
   sendToResend(){

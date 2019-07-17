@@ -25,13 +25,13 @@ export class ResendPasswordComponent implements OnInit {
       console.log(res);
       
       if (res != null){
-        //this.invalidLogin = false;
-
         this.router.navigate(['login']);
+        alert('Your password has been sent');
     }
         else{
-          //this.invalidLogin = true;
         }
-    });
+    }
+    ,(err)=>{console.log(err)
+    alert('Username does not exist')});
   }
 }

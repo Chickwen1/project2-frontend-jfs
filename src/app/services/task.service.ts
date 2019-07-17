@@ -39,6 +39,4 @@ export class TaskService {
     console.log(task);
     return this.http.post( this.serverUrl + `tasks/`, task);
   }
-
-
 }
