@@ -1,0 +1,26 @@
+<h3 class="display-4">My Contacts</h3>
+
+
+<!--<div class="alert alert-success" *ngIf='message'>{{message}}</div>-->
+
+
+<br />
+
+<table mat-table class="table table-striped">
+  <thead class="thead-dark"><tr><th>Contact Id</th><th>User Id</th><th>Name</th></tr></thead>
+  <tbody *ngFor="let contact of contacts">
+    <tr>
+      <td>{{contact.contactlist_id}}</td>
+      <td>{{contact.userid}}</td>
+      <td>{{contact.firstname}} {{contact.lastname}}</td>
+
+      <td><button (click)="view(contact.contactlist_id, contact.userid)" class="btn btn-info">View</button></td>
+      <!--<td><button (click)="deleteContact(contact.contactId)" class="btn btn-danger">Delete</button></td>-->
+    </tr>
+
+  </tbody>
+</table>
+<div class="row">
+  <button (click)="createContact()" class="btn btn-secondary btn-lg btn-lg">Add A Contact</button>
+  <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+</div>

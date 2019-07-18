@@ -1,0 +1,32 @@
+<h3 class="display-4">My Contacts</h3>
+
+
+
+
+
+<br />
+
+<table mat-table class="table table-striped" *ngIf="contact">
+  <thead class="thead-dark"><tr><th>Contact Id</th><th>User Id</th><th>Name</th><th>E-Mail</th><th>Phone</th><th>Address</th><th>City</th><th>State</th></tr></thead>
+  <tbody >
+    <tr>
+      <td>{{contact.contactlist_id}}</td>
+      <td>{{contact.userid}}</td>
+      <td>{{contact.firstname}} {{contact.lastname}}</td>
+      <td>{{contact.contact_email}}</td>
+      <td>{{contact.phone_number}}</td>
+      <td>{{contact.address}}</td>
+      <td>{{contact.city}}</td>
+      <td>{{contact.state}}</td>
+
+
+      <!--<td><button (click)="view(contact.contactId)" class="btn btn-info">View</button></td>-->
+      <td><button (click)="deleteContact(contact.contactlist_id)" class="btn btn-danger">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="row">
+  <!--<button (click)="createContact()" class="btn btn-secondary btn-lg btn-lg">Add A Contact</button>-->
+  <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+</div>

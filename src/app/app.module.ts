@@ -22,6 +22,9 @@ import { TypePipe } from './pipes/type.pipe';
 import { IdPipe } from './pipes/id.pipe';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 import { ModalModule } from 'ngb-modal';
+import { CreatecontactComponent } from './components/createcontact/createcontact.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { MyContactsComponent } from './components/my-contacts/my-contacts.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ModalModule } from 'ngb-modal';
     CreateAgendaComponent,
     TypePipe,
     IdPipe,
-    EditTaskComponent
+    EditTaskComponent,
+    CreatecontactComponent,
+    ContactComponent,
+    MyContactsComponent
   ],
   imports: [
     BrowserModule,
