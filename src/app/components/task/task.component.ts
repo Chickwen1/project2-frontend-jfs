@@ -22,8 +22,7 @@ export class TaskComponent implements OnInit {
     }
 
   ngOnInit() {
-      this.agendaId = JSON.parse(sessionStorage.getItem('agendaId'));//params['agendaId'];
-       // console.log('AgendaId', this.agendaId);
+      this.agendaId = JSON.parse(sessionStorage.getItem('agendaId'));
       
     this.refreshTasks();
   }

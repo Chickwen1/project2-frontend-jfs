@@ -43,22 +43,6 @@ export class AgendaService {
     return this.http.delete( this.serverUrl + `agenda/${id}`);
   }
 
-  // getPersonal(){
-  //   return this.agenda.filter((agenda)=>{
-  //   return agenda.type =='personal';
-  //   });
-  // }
-  
-  // listPersonal(agendaId:number){
-  //   let agenda = { "agendaId": agendaId};
-  //   return this.http.post<Agenda[]>(this.serverUrl + "agenda/personal", agenda);
-  // }
-
-  // listBusiness(){
-  //   let agenda = { "email": email, "password": password};
-  //   return this.http.get<Agenda[]>(this.serverUrl + "agenda");
-  // }
-
   getAgenda(email:string,password:string){
     let agenda = { "email": email, "password": password};
     return this.http.post(this.serverUrl + "users/login", agenda);
