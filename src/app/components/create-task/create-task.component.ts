@@ -39,6 +39,7 @@ export class CreateTaskComponent implements OnInit {
      console.log(this.taskDate, this.taskTime, this.taskDescription, this.duration, this.location)
 // conversion -
 
+
 //var date = this.taskDate.toLocaleString("en-US", {timeZone: "America/New_York"});
 
     let newTask = { "taskDate": this.taskDate , "taskDescription": this.taskDescription, 

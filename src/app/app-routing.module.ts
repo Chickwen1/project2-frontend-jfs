@@ -28,10 +28,10 @@ const routes: Routes = [
   {path:'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
   {path:'create-agenda', component: CreateAgendaComponent, canActivate:[RouteGuardService]},
   {path:'create-task', component: CreateTaskComponent, canActivate:[RouteGuardService]},
-  {path:'edit-task/:id', component: EditTaskComponent},//, canActivate:[RouteGuardService]},
-  { path: 'createcontact', component: CreatecontactComponent },// canActivate: [RouteGuardService] },
-  { path: 'my-contacts', component: MyContactsComponent },// canActivate: [RouteGuardService] },
-  { path: 'contact', component: ContactComponent },// canActivate: [RouteGuardService] },
+  {path:'edit-task/:id', component: EditTaskComponent, canActivate:[RouteGuardService]},
+  { path: 'createcontact', component: CreatecontactComponent, canActivate: [RouteGuardService] },
+  { path: 'my-contacts', component: MyContactsComponent, canActivate: [RouteGuardService] },
+  { path: 'contact', component: ContactComponent, canActivate: [RouteGuardService] },
 
   {path:'', component: LoginComponent}
 ];

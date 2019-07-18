@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { User } from 'src/app/models/user';
 
@@ -24,7 +24,8 @@ export class CreatecontactComponent implements OnInit {
   
 
   constructor(private contactService: ContactService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
