@@ -12,6 +12,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { CreateAgendaComponent } from './components/create-agenda/create-agenda.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { ResendPasswordComponent } from './components/resend-password/resend-password.component';
+import {ContactComponent } from './components/contact/contact.component';
+import { MyContactsComponent } from './components/my-contacts/my-contacts.component';
+import { CreatecontactComponent } from './components/createcontact/createcontact.component';
 
 
 const routes: Routes = [
@@ -26,7 +29,9 @@ const routes: Routes = [
   {path:'create-agenda', component: CreateAgendaComponent, canActivate:[RouteGuardService]},
   {path:'create-task', component: CreateTaskComponent, canActivate:[RouteGuardService]},
   {path:'edit-task/:id', component: EditTaskComponent},//, canActivate:[RouteGuardService]},
-
+  { path: 'createcontact', component: CreatecontactComponent },// canActivate: [RouteGuardService] },
+  { path: 'my-contacts', component: MyContactsComponent },// canActivate: [RouteGuardService] },
+  { path: 'contact', component: ContactComponent },// canActivate: [RouteGuardService] },
 
   {path:'', component: LoginComponent}
 ];
